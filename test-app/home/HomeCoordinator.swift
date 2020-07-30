@@ -12,11 +12,12 @@ import Coordinator
 class HomeCoordinator: Coordinator {
     
     let storyboardName: String = "home"
+    var navigationController: UINavigationController?
     
     var index = 0
     
     func goToSub(navigationController: UINavigationController) {
-        self.show(
+        self.push(
             HomeSubViewController.self,
             in: navigationController
         )

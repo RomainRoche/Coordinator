@@ -6,12 +6,13 @@
 //  Copyright © 2020 rroche. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import Coordinator
 
 class FooCoordinator: Coordinator {
     
     let storyboardName: String = "foo"
+    var navigationController: UINavigationController?
     
     var index = 0
     
