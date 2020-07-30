@@ -15,6 +15,22 @@ public protocol Coordinator: class {
 
 public extension Coordinator {
     
+    /// Attach the coordinator's navigation controller as root view controller of the window.
+    /// - Parameter window: The window to attach to.
+    /// - Parameter rootType: The type of the root view controller to use.
+    /// - Returns: The navigation controller embeding the view controller.
+    @discardableResult func attach<T: UIViewController & Coordinated>(
+        to window: UIWindow,
+        rootType: T.Type
+    ) -> UINavigationController where T.CoordinatorType == Self {
+        var viewController = T.instantiate(storyboardName: self.storyboardName)
+        viewController.coordinator = self
+        let navigationController = UINavigationController(rootViewController: viewController)
+        window.rootViewController = navigationController
+        window.makeKeyAndVisible()
+        return navigationController
+    }
+    
     /// Show a view controller in the given navigation controller.
     /// - Parameter coordinated: The type of coordinated view controller to use.
     /// - Parameter navigationController: The navigation controller used to push.
