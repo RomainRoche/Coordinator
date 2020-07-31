@@ -15,8 +15,6 @@ public protocol Coordinator: class {
     var navigationController: UINavigationController { get set }
     /// A parent coordinator.
     var parent: Coordinator? { get set }
-    /// Init.
-    init(navigationController: UINavigationController)
 }
 
 public extension Coordinator {
