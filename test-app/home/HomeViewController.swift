@@ -12,15 +12,10 @@ import Coordinator
 class HomeViewController: UIViewController, Coordinated {
 
     @IBAction private func btn0(_ sender: UIButton) {
-        self.coordinator.present(
+        self.coordinator.push(
             coordinator: FooCoordinator(),
             coordinated: FooViewController.self
         )
-//        guard let navigation = self.navigationController else { return }
-//        self.coordinator.goToSub(navigationController: navigation)
-//        let vc = FooCoordinator()
-//        .show(FooViewController.self, in: UINavigationController(), animated: false)
-//        self.present(vc.navigationController ?? vc, animated: true, completion: nil)
     }
     
     typealias CoordinatorType = HomeCoordinator

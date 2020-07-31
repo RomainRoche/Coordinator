@@ -12,8 +12,12 @@ import Coordinator
 class FooCoordinator: Coordinator {
     
     let storyboardName: String = "foo"
-    var navigationController: UINavigationController?
+    var navigationController: UINavigationController
     
     var index = 0
+    
+    required init() {
+        self.navigationController = UINavigationController()
+    }
     
 }
