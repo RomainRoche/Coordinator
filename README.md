@@ -6,7 +6,7 @@ This is a very early draft. Don't hesitate to give your feedbacks!
 
 ## Use a `Coordinator`
 
-### Implement a `Coordinator` implementation
+### Implement a `Coordinator`
 
 ```
 class MyCoordinator: Coordinator {
@@ -35,5 +35,27 @@ A `Coordinated` view controller will also implement the `Storyboarded` protocol 
 
 To do so:
 * In the `"my-storyboard"` storyboard used by `MyCoordinator` add a View Controller
-* Set its class to `MyViewController` in the identity inspector.
-* Set its **Storyboard ID** to `MyViewController` too.
+* Set its class to `MyViewController` in the identity inspector
+* Set its **Storyboard ID** to `MyViewController` too
+
+### Operations from a `Coordinated` view controller.
+
+In the following example `MainViewController` and `OtherViewController` both implement `Coordinated` with the same `CoordinatorType` typealias.
+
+```
+class MainViewController: Coordinated {
+
+    typealias CoordinatorType = MyCoordinator
+    var coordinator = MyCoordinator()
+    
+    func goToOther() {
+        let other = self.coordinator.push(OtherViewController.self)
+    }
+    
+    func presentOther() {
+        let other = self.coordinator.present(OtherViewController.self)
+    }
+
+}
+```
+`MainViewController` and `OtherViewController` will then have the same instance of `MyCoordinator` and can then share properties through it.
