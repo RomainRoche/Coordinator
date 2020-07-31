@@ -81,6 +81,7 @@
 		7AE6D9D224D317FF00B663F3 /* FooCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooCoordinator.swift; sourceTree = "<group>"; };
 		7AE6D9D424D3181900B663F3 /* foo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = foo.storyboard; sourceTree = "<group>"; };
 		7AE6D9D624D3182B00B663F3 /* FooViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooViewController.swift; sourceTree = "<group>"; };
+		7AE6D9DE24D4114900B663F3 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +106,7 @@
 		7AE6D97424D30A1700B663F3 = {
 			isa = PBXGroup;
 			children = (
+				7AE6D9DE24D4114900B663F3 /* Package.swift */,
 				7AE6D98024D30A1700B663F3 /* Coordinator */,
 				7AE6D9AD24D3122300B663F3 /* test-app */,
 				7AE6D97F24D30A1700B663F3 /* Products */,
@@ -482,12 +484,13 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Coordinator/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rroche.Coordinator;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -509,12 +512,13 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Coordinator/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rroche.Coordinator;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
