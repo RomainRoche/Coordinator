@@ -26,6 +26,7 @@
 		7AE6D9D324D317FF00B663F3 /* FooCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE6D9D224D317FF00B663F3 /* FooCoordinator.swift */; };
 		7AE6D9D524D3181900B663F3 /* foo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AE6D9D424D3181900B663F3 /* foo.storyboard */; };
 		7AE6D9D724D3182B00B663F3 /* FooViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE6D9D624D3182B00B663F3 /* FooViewController.swift */; };
+		7AE6D9E024D4123000B663F3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7AE6D9DF24D4123000B663F3 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		7AE6D9D424D3181900B663F3 /* foo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = foo.storyboard; sourceTree = "<group>"; };
 		7AE6D9D624D3182B00B663F3 /* FooViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooViewController.swift; sourceTree = "<group>"; };
 		7AE6D9DE24D4114900B663F3 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		7AE6D9DF24D4123000B663F3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 		7AE6D97424D30A1700B663F3 = {
 			isa = PBXGroup;
 			children = (
+				7AE6D9DF24D4123000B663F3 /* README.md */,
 				7AE6D9DE24D4114900B663F3 /* Package.swift */,
 				7AE6D98024D30A1700B663F3 /* Coordinator */,
 				7AE6D9AD24D3122300B663F3 /* test-app */,
@@ -281,6 +284,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AE6D9E024D4123000B663F3 /* README.md in Resources */,
 				7AE6D9BB24D3122500B663F3 /* LaunchScreen.storyboard in Resources */,
 				7AE6D9B824D3122500B663F3 /* Assets.xcassets in Resources */,
 				7AE6D9B624D3122300B663F3 /* Main.storyboard in Resources */,
