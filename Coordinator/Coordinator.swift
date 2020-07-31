@@ -114,7 +114,7 @@ public extension Coordinator {
     ) -> U where U.CoordinatorType == T {
         var viewController = U.instantiate(storyboardName: coordinator.storyboardName)
         viewController.coordinator = coordinator
-        viewController.modalPresentationStyle = modalStyle
+        coordinator.navigationController.modalPresentationStyle = modalStyle
         coordinator.navigationController.pushViewController(viewController, animated: false)
         coordinator.parent = self
         self.navigationController.present(
