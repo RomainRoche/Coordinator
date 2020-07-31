@@ -13,6 +13,8 @@ public protocol Coordinator: class {
     var storyboardName: String { get }
     /// The navigation controller used to navigate in the coordinator.
     var navigationController: UINavigationController { get set }
+    /// A parent coordinator.
+    var parent: Coordinator? { get set }
     /// Init.
     init(navigationController: UINavigationController)
 }
@@ -122,6 +124,7 @@ public extension Coordinator {
         viewController.coordinator = coordinator
         viewController.modalPresentationStyle = modalStyle
         coordinator.navigationController.pushViewController(viewController, animated: false)
+        coordinator.parent = self
         self.navigationController.present(
             coordinator.navigationController,
             animated: animated,
@@ -130,4 +133,26 @@ public extension Coordinator {
         return viewController
     }
     
+    /// Dismiss.
+    /// - Parameter animated: Is the dismiss animated?
+    /// - Parameter then: The dismiss closure.
+    /// - Parameter ok: Did the dismiss occured?
+    func dismiss(
+        animated: Bool = true,
+        then: ((_ ok: Bool) -> Void)?
+    ) {
+        // if no parent, then(false)
+        guard let parentVC = self.navigationController.parent
+            , parentVC === self.parent?.navigationController else
+        {
+            then?(false)
+            return
+        }
+        // do dismiss
+        self.parent = nil
+        parentVC.dismiss(animated: animated) {
+            then?(true)
+        }
+    }
+
 }
