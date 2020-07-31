@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		7AE6D98324D30A1700B663F3 /* Coordinator.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AE6D98124D30A1700B663F3 /* Coordinator.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7AE6D98A24D30A7900B663F3 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE6D98924D30A7900B663F3 /* Storyboarded.swift */; };
 		7AE6D98C24D30AC800B663F3 /* Coordinated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE6D98B24D30AC800B663F3 /* Coordinated.swift */; };
 		7AE6D98E24D30B2B00B663F3 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE6D98D24D30B2B00B663F3 /* Coordinator.swift */; };
 		7AE6D9AF24D3122300B663F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE6D9AE24D3122300B663F3 /* AppDelegate.swift */; };
@@ -27,6 +26,7 @@
 		7AE6D9D524D3181900B663F3 /* foo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AE6D9D424D3181900B663F3 /* foo.storyboard */; };
 		7AE6D9D724D3182B00B663F3 /* FooViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE6D9D624D3182B00B663F3 /* FooViewController.swift */; };
 		7AE6D9E024D4123000B663F3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7AE6D9DF24D4123000B663F3 /* README.md */; };
+		7AE6D9E824D41BDC00B663F3 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE6D9E724D41BDB00B663F3 /* Storyboarded.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +64,6 @@
 		7AE6D97E24D30A1700B663F3 /* Coordinator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Coordinator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AE6D98124D30A1700B663F3 /* Coordinator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Coordinator.h; sourceTree = "<group>"; };
 		7AE6D98224D30A1700B663F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7AE6D98924D30A7900B663F3 /* Storyboarded.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Storyboarded.swift; path = ../../archive/coordinator/coordinator/src/Storyboarded.swift; sourceTree = "<group>"; };
 		7AE6D98B24D30AC800B663F3 /* Coordinated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinated.swift; sourceTree = "<group>"; };
 		7AE6D98D24D30B2B00B663F3 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		7AE6D9AC24D3122300B663F3 /* test-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "test-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,6 +83,7 @@
 		7AE6D9D624D3182B00B663F3 /* FooViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooViewController.swift; sourceTree = "<group>"; };
 		7AE6D9DE24D4114900B663F3 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		7AE6D9DF24D4123000B663F3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		7AE6D9E724D41BDB00B663F3 /* Storyboarded.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,7 +131,7 @@
 			children = (
 				7AE6D98D24D30B2B00B663F3 /* Coordinator.swift */,
 				7AE6D98B24D30AC800B663F3 /* Coordinated.swift */,
-				7AE6D98924D30A7900B663F3 /* Storyboarded.swift */,
+				7AE6D9E724D41BDB00B663F3 /* Storyboarded.swift */,
 				7AE6D98124D30A1700B663F3 /* Coordinator.h */,
 				7AE6D98224D30A1700B663F3 /* Info.plist */,
 			);
@@ -301,8 +301,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AE6D98C24D30AC800B663F3 /* Coordinated.swift in Sources */,
-				7AE6D98A24D30A7900B663F3 /* Storyboarded.swift in Sources */,
 				7AE6D98E24D30B2B00B663F3 /* Coordinator.swift in Sources */,
+				7AE6D9E824D41BDC00B663F3 /* Storyboarded.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
