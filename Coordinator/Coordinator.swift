@@ -23,12 +23,6 @@ public extension Coordinator {
     
     // MARK: - public
     
-    /// Init with a default navigation controller.
-    /// - Parameter navigationController: The navigation controller to use, `UINavigationController()` by default.
-    init(navigationController: UINavigationController = UINavigationController()) {
-        self.init(navigationController: navigationController)
-    }
-    
     /// Attach the coordinator's navigation controller as root view controller of the window.
     /// - Parameter window: The window to attach to.
     /// - Parameter rootType: The type of the root view controller to use.
