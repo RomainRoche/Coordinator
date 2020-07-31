@@ -139,7 +139,7 @@ public extension Coordinator {
     /// - Parameter ok: Did the dismiss occured?
     func dismiss(
         animated: Bool = true,
-        then: ((_ ok: Bool) -> Void)?
+        then: ((_ ok: Bool) -> Void)? = nil
     ) {
         // if no parent, then(false)
         guard let parentVC = self.navigationController.parent
