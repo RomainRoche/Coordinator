@@ -134,7 +134,7 @@ public extension Coordinator {
         then: ((_ ok: Bool) -> Void)? = nil
     ) {
         // if no parent, then(false)
-        guard let parentVC = self.navigationController.parent
+        guard let parentVC = self.navigationController.presentingViewController
             , parentVC === self.parent?.navigationController else
         {
             then?(false)
