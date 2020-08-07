@@ -60,6 +60,21 @@ class MainViewController: Coordinated {
 ```
 `MainViewController` and `OtherViewController` will then have the same instance of `MyCoordinator` and can then share properties through it.
 
+#### Customizing view controller
+
+When pushing or presenting, the `Coordinated` view controller created is returned, allowing you to set what you need on it.
+
+```
+let other = self.coordinator.present(OtherViewController.self)
+other.doSetup()
+```
+
+**NOTE** The returned view controller can be ignored.
+```
+// no reference to the returned view controller
+self.coordinator.present(OtherViewController.self)
+```
+
 ### Use another `Coordinator`
 
 A `Coordinator` can **push** another coordinator, or **present** it modally.
@@ -98,3 +113,7 @@ class MainViewController: Coordinated {
 
 }
 ```
+
+The presented coordinator can the be dismissed.
+
+`nextCoordinator.dismiss()`
