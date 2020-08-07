@@ -59,3 +59,44 @@ class MainViewController: Coordinated {
 }
 ```
 `MainViewController` and `OtherViewController` will then have the same instance of `MyCoordinator` and can then share properties through it.
+
+### Use another `Coordinator`
+
+#### Push in the same navigation controller
+
+```
+
+class MainViewController: Coordinated {
+
+    typealias CoordinatorType = MyCoordinator
+    var coordinator = MyCoordinator()
+    
+    func goToNextCoordinator() {
+        self.coordinator.push(
+            coordinator: NextCoordinator(),
+            coordinated: NextViewController.self
+        )
+    }
+
+}
+
+```
+#### Present another coordinator
+
+```
+
+class MainViewController: Coordinated {
+
+    typealias CoordinatorType = MyCoordinator
+    var coordinator = MyCoordinator()
+    
+    func presentNextCoordinator() {
+        self.coordinator.present(
+            coordinator: NextCoordinator(),
+            coordinated: NextViewController.self
+        )
+    }
+
+}
+
+```
