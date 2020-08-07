@@ -62,10 +62,11 @@ class MainViewController: Coordinated {
 
 ### Use another `Coordinator`
 
+A `Coordinator` can **push** another coordinator, or **present** it modally.
+
 #### Push in the same navigation controller
 
 ```
-
 class MainViewController: Coordinated {
 
     typealias CoordinatorType = MyCoordinator
@@ -79,12 +80,10 @@ class MainViewController: Coordinated {
     }
 
 }
-
 ```
 #### Present another coordinator
 
 ```
-
 class MainViewController: Coordinated {
 
     typealias CoordinatorType = MyCoordinator
@@ -98,5 +97,4 @@ class MainViewController: Coordinated {
     }
 
 }
-
 ```
