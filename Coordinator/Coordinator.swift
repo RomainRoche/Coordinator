@@ -74,6 +74,7 @@ public extension Coordinator {
         viewController.modalPresentationStyle = modalStyle
         if embedInNavigationController {
             let navigation = UINavigationController(rootViewController: viewController)
+            navigation.modalPresentationStyle = modalStyle
             self.navigationController.present(
                 navigation,
                 animated: animated,
