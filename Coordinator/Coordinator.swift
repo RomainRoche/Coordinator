@@ -59,22 +59,33 @@ public extension Coordinator {
     /// - Parameter coordinated: The type of coordinated view controller to use.
     /// - Parameter animated: Is the transition animated (`true` by default)?
     /// - Parameter modalStyle: The modal presentation style.
+    /// - Parameter embedInNavigationController: Embed in a navigation controller.
     /// - Parameter then: The completion closure.
     /// - Returns: The view controller created.
     @discardableResult func present<T: UIViewController & Coordinated>(
         _ coordinated: T.Type,
         animated: Bool = true,
         modalStyle: UIModalPresentationStyle = .formSheet,
+        embedInNavigationController: Bool = false,
         then: (() -> Void)? = nil
     ) -> T where T.CoordinatorType == Self {
         var viewController = T.instantiate(storyboardName: self.storyboardName)
         viewController.coordinator = self
         viewController.modalPresentationStyle = modalStyle
-        self.navigationController.present(
-            viewController, animated:
-            animated,
-            completion: then
-        )
+        if embedInNavigationController {
+            let navigation = UINavigationController(rootViewController: viewController)
+            self.navigationController.present(
+                navigation,
+                animated: animated,
+                completion: then
+            )
+        } else {
+            self.navigationController.present(
+                viewController,
+                animated: animated,
+                completion: then
+            )
+        }
         return viewController
     }
     
