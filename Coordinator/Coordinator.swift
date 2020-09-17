@@ -145,16 +145,9 @@ public extension Coordinator {
         animated: Bool = true,
         then: ((_ ok: Bool) -> Void)? = nil
     ) {
-        // if no parent, then(false)
-        guard let parentVC = self.navigationController.presentingViewController
-            , parentVC === self.parent?.navigationController else
-        {
-            then?(false)
-            return
-        }
         // do dismiss
         self.parent = nil
-        parentVC.dismiss(animated: animated) {
+        self.navigationController.dismiss(animated: true) {
             then?(true)
         }
     }
