@@ -66,14 +66,14 @@ public extension Coordinator {
         _ coordinated: T.Type,
         animated: Bool = true,
         modalStyle: UIModalPresentationStyle = .formSheet,
-        embedInNavigationController: Bool = false,
+        in navigationController: UINavigationController? = nil,
         then: (() -> Void)? = nil
     ) -> T where T.CoordinatorType == Self {
         var viewController = T.instantiate(storyboardName: self.storyboardName)
         viewController.coordinator = self
         viewController.modalPresentationStyle = modalStyle
-        if embedInNavigationController {
-            let navigation = UINavigationController(rootViewController: viewController)
+        if let navigation = navigationController {
+            navigation.viewControllers = [viewController]
             navigation.modalPresentationStyle = modalStyle
             self.navigationController.present(
                 navigation,
