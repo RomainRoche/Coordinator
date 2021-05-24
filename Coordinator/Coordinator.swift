@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol Coordinator: class {
+public protocol Coordinator: AnyObject {
     /// The name of the storyboard used to instantiate the view controllers.
     var storyboardName: String { get }
     /// The navigation controller used to navigate in the coordinator.
@@ -20,6 +20,19 @@ public protocol Coordinator: class {
 public extension Coordinator {
     
     // MARK: - public
+    
+    /// Create a coordinated view controller.
+    /// - Parameter coordinated: The type of the coordinated view controller.
+    /// - Returns: A `Coordinated` view controller.
+    func make<T: Coordinated & UIViewController>(
+        coordinated: T.Type
+    ) -> T where T.CoordinatorType == Self {
+        var coordinated = T.instantiate(
+            storyboardName: self.storyboardName, in: Bundle(for: Self.self)
+        )
+        coordinated.coordinator = self
+        return coordinated
+    }
     
     /// Attach the coordinator's navigation controller as root view controller of the window.
     /// - Parameter window: The window to attach to.
@@ -150,6 +163,22 @@ public extension Coordinator {
         self.navigationController.dismiss(animated: true) {
             then?(true)
         }
+    }
+    
+    func present<T: Coordinator>(
+        coordinator: T,
+        viewController: UIViewController,
+        animated: Bool = true,
+        modalStyle: UIModalPresentationStyle = .formSheet,
+        then: (() -> Void)? = nil
+    ) {
+        viewController.modalPresentationStyle = modalStyle
+        coordinator.parent = self
+        self.navigationController.present(
+            viewController,
+            animated: animated,
+            completion: then
+        )
     }
 
 }
