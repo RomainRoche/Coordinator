@@ -19,6 +19,16 @@ public protocol Coordinator: AnyObject {
 
 public extension Coordinator {
     
+    // MARK: - private
+    
+    private var presentedViewController: UIViewController {
+        var vc: UIViewController = self.navigationController
+        while let next = vc.presentedViewController {
+            vc = next
+        }
+        return vc
+    }
+    
     // MARK: - public
     
     /// Create a coordinated view controller.
@@ -88,13 +98,13 @@ public extension Coordinator {
         if let navigation = navigationController {
             navigation.viewControllers = [viewController]
             navigation.modalPresentationStyle = modalStyle
-            self.navigationController.present(
+            self.presentedViewController.present(
                 navigation,
                 animated: animated,
                 completion: then
             )
         } else {
-            self.navigationController.present(
+            self.presentedViewController.present(
                 viewController,
                 animated: animated,
                 completion: then
@@ -142,7 +152,7 @@ public extension Coordinator {
         coordinator.navigationController.modalPresentationStyle = modalStyle
         coordinator.navigationController.pushViewController(viewController, animated: false)
         coordinator.parent = self
-        self.navigationController.present(
+        self.presentedViewController.present(
             coordinator.navigationController,
             animated: animated,
             completion: then
@@ -174,7 +184,7 @@ public extension Coordinator {
     ) {
         viewController.modalPresentationStyle = modalStyle
         coordinator.parent = self
-        self.navigationController.present(
+        self.presentedViewController.present(
             viewController,
             animated: animated,
             completion: then
