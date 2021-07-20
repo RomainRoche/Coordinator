@@ -133,11 +133,31 @@ public extension Coordinator {
         return viewController
     }
     
+    /// Present a coordinator over the receiver.
+    /// - Parameter coordinator: The coordinator to present.
+    /// - Parameter animated: Should the presentation be animated.
+    /// - Parameter modalStyle: A modal style, `.formSheet` by default.
+    /// - Parameter then: The completion closure.
+    func present<T: Coordinator>(
+        coordinator: T,
+        animated: Bool = true,
+        modalStyle: UIModalPresentationStyle = .formSheet,
+        then: (() -> Void)? = nil
+    ) {
+        coordinator.navigationController.modalPresentationStyle = modalStyle
+        coordinator.parent = self
+        self.presentedViewController.present(
+            coordinator.navigationController,
+            animated: animated,
+            completion: then
+        )
+    }
+    
     /// Show a view controller on the given view controller modally.
     /// - Parameter coordinator: The coordinator to be used.
     /// - Parameter coordinated: The type of coordinated view controller to use.
     /// - Parameter animated: Is the transition animated (`true` by default)?
-    /// - Parameter modalStyle: The modal presentation style.
+    /// - Parameter modalStyle: The modal presentation style, `.formSheet` by default.
     /// - Parameter then: The completion closure.
     /// - Returns: The view controller created.
     @discardableResult func present<T, U: UIViewController & Coordinated>(
@@ -149,14 +169,8 @@ public extension Coordinator {
     ) -> U where U.CoordinatorType == T {
         var viewController = U.instantiate(storyboardName: coordinator.storyboardName)
         viewController.coordinator = coordinator
-        coordinator.navigationController.modalPresentationStyle = modalStyle
         coordinator.navigationController.pushViewController(viewController, animated: false)
-        coordinator.parent = self
-        self.presentedViewController.present(
-            coordinator.navigationController,
-            animated: animated,
-            completion: then
-        )
+        self.present(coordinator: coordinator, animated: animated, modalStyle: modalStyle, then: then)
         return viewController
     }
     
