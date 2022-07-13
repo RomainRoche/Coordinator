@@ -16,7 +16,7 @@ public protocol Storyboarded {
 
 /// A protocol to be used for generic view controllers.
 public protocol GenericStoryboarded {
-    static var storyboardID: String { get }
+    static func storyboardID() -> String
 }
 
 public extension Storyboarded where Self: UIViewController {
@@ -50,7 +50,7 @@ public extension Storyboarded where Self: UIViewController & GenericStoryboarded
         in bundle: Bundle = Bundle.main
     ) -> Self {
         let storyboard = UIStoryboard(name: storyboardName, bundle: bundle)
-        return storyboard.instantiateViewController(withIdentifier: self.storyboardID) as! Self
+        return storyboard.instantiateViewController(withIdentifier: self.storyboardID()) as! Self
     }
     
 }
