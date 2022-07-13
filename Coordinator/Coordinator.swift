@@ -61,6 +61,22 @@ public extension Coordinator {
     }
     
     /// Show a view controller in the given navigation controller.
+    /// - Parameter viewController: The type of coordinated view controller to use.
+    /// - Parameter navigationController: The navigation controller used to push.
+    /// - Parameter animated: Is the transition animated (`true` by default)?
+    /// - Returns: The view controller created.
+    @discardableResult func push<T: UIViewController & Coordinated>(
+        _ viewController: T,
+        animated: Bool = true
+    ) -> T where T.CoordinatorType == Self {
+        self.navigationController.pushViewController(
+            viewController,
+            animated: animated
+        )
+        return viewController
+    }
+    
+    /// Show a view controller in the given navigation controller.
     /// - Parameter coordinated: The type of coordinated view controller to use.
     /// - Parameter navigationController: The navigation controller used to push.
     /// - Parameter animated: Is the transition animated (`true` by default)?

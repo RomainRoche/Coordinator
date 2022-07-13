@@ -31,7 +31,6 @@ public extension Storyboarded where Self: UIViewController {
         storyboardName: String = "Main",
         in bundle: Bundle = Bundle.main
     ) -> Self {
-        
         let storyboard = UIStoryboard(name: storyboardName, bundle: bundle)
         return storyboard.instantiateViewController(withIdentifier: storyboardID()) as! Self
     }
