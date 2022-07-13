@@ -14,6 +14,11 @@ public protocol Storyboarded {
     static func instantiate(storyboardName: String, in bundle: Bundle) -> Self
 }
 
+/// A protocol to be used for generic view controllers.
+public protocol GenericStoryboarded {
+    static var storyboardID: String { get }
+}
+
 public extension Storyboarded where Self: UIViewController {
     
     /// Instantiate a view controller using its class name.
@@ -29,6 +34,23 @@ public extension Storyboarded where Self: UIViewController {
         let className = fullName.components(separatedBy: ".")[1]
         let storyboard = UIStoryboard(name: storyboardName, bundle: bundle)
         return storyboard.instantiateViewController(withIdentifier: className) as! Self
+    }
+    
+}
+
+public extension Storyboarded where Self: UIViewController & GenericStoryboarded {
+    
+    /// Instantiate a view controller using its class name.
+    ///
+    /// The view controller should have its class name set as storyboard id.
+    /// - Parameter storyboardName: The name of the storyboard. Optional, "Main" by default.
+    /// - Parameter bundle: The bundle of the storyboard, Optional, `Bundle.main` by default.
+    static func instantiate(
+        storyboardName: String = "Main",
+        in bundle: Bundle = Bundle.main
+    ) -> Self {
+        let storyboard = UIStoryboard(name: storyboardName, bundle: bundle)
+        return storyboard.instantiateViewController(withIdentifier: self.storyboardID) as! Self
     }
     
 }
